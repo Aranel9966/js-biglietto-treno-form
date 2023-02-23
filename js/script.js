@@ -23,15 +23,16 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del bigliett
 */
 
 // dichiaro le variabili
+let formEl =document.querySelector('form');
 let distanceKmEl = document.getElementById('distanceKm');
 let ageEl = document.getElementById('age');
 let submitEl = document.getElementById('submit');
-let tiketEl = document.getElementById('tiket')
+let tiketEl = document.getElementById('tiket');
 
 // variabili vuote
 let costKm ;
 let sale;
-
+let message='';
 
 //creo un evento
 submitEl.addEventListener('click', function(){
@@ -39,23 +40,40 @@ submitEl.addEventListener('click', function(){
     costKm = distanceKmEl.value * 0.21;
 
     if(ageEl.value < 18){
-        sale = (costKm / 100 * 80);
-        
+        sale = (costKm / 100 * 80).toFixed(2);
+        message='sconto del 20 % ' + sale + '€'
     
     }else if(ageEl.value > 65){
-        sale = (costKm / 100 * 60);
-    
+        sale = (costKm / 100 * 60).toFixed(2);
+        message='sconto del 40 % ' + sale  + '€'
+        
     }else{
-       sale=costKm
+       sale=costKm.toFixed(2)
+       message='niente sconto ' + sale + '€'
+
     }
 
+    distanceKmEl.value='';
+    ageEl.value='';
+
     
-    console.log(distanceKmEl.value )
-    console.log(ageEl.value )
-    console.log(sale)
-    
+    tiketEl.innerHTML=(`
+    Tratta da percorrere: ${distanceKmEl.value} km <br>
+    Eta del passeggero: ${ageEl.value} anni <br>
+    ${message}
+    `)
     
 });
+
+// tiketEl.innerHTML=
+
+// tiketEl.innerHTML =(`
+// Tratta da percorrere: ${sale} km 
+// `)
+// let tiketEl = document.getElementById('tiket');
+// document.writeln(`
+// Tratta da percorrere: ${distanceKmEl.value} km <br>
+// `)
 
 // document.writeln(`
 // Tratta da percorrere: ${distanceKmEl} km <br>
