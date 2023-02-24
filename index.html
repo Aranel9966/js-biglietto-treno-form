@@ -10,28 +10,39 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 </head>
-<body>
+<body class="bg-danger-subtle">
+    <h1 class="p-3 text-center">Prenota il tuo Biglietto</h1>    
+    <div class="row bg-info-subtle p-3 text-center rounded-pill overflow-hidden border border-warning m-3">
+
+        <div class="mb-3 col-4 m-auto ">
+            <label for="name" class="form-label">Inserire nome e cognome?</label>
+            <input type="text" class="form-control " id="name" >
+        </div>
+
+        <div class="mb-3 col-4 m-auto">
+          <label for="distanceKm" class="form-label">Quanti km devi percorrere?</label>
+          <input type="number" class="form-control" id="distanceKm" >     
+        </div>
     
-    <div class="mb-3 col-5">
-      <label for="distanceKm" class="form-label">Quanti km devi percorrere?</label>
-      <input type="number" class="form-control" id="distanceKm" >     
+        <div class="mb-3 col-4 m-auto ">
+            <label for="age" class="form-label">Quanti anni hai?</label>
+            <input type="number" class="form-control " id="age" >
+        </div>
+        
+    
+        <div class="p-3 text-center m-auto bg-info-subtle">
+            <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+            <button id="annulla" type="annulla" class="btn btn-primary">Annulla</button>
+        
+        </div>
+    </div>
+    <div class="bg-info text-center rounded-pill overflow-hidden border border-warning m-3">
+        <p id="tiket" class="fs-2 p-3"> Caricamento...            
+            <span class="spinner-grow"></span>  
+        </p>
     </div>
 
-    <div class="mb-3 col-5 ">
-        <label for="age" class="form-label">Quanti anni hai?</label>
-        <input type="number" class="form-control " id="age" >
-    </div>
-
-    <div class="my-4 col-2 ">
-
-        <button id="submit" type="submit" class="btn btn-primary">Submit</button>
-    </div>
-
-    <div class="bg-info">
-        <p id="tiket"></p>
-    </div>
-
-
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!-- my script -->

@@ -23,11 +23,13 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del bigliett
 */
 
 // dichiaro le variabili
-let formEl =document.querySelector('form');
+let nameEl = document.getElementById('name');
 let distanceKmEl = document.getElementById('distanceKm');
 let ageEl = document.getElementById('age');
 let submitEl = document.getElementById('submit');
+let annullaEl = document.getElementById('annulla');
 let tiketEl = document.getElementById('tiket');
+
 
 // variabili vuote
 let costKm ;
@@ -41,57 +43,38 @@ submitEl.addEventListener('click', function(){
 
     if(ageEl.value < 18){
         sale = (costKm / 100 * 80).toFixed(2);
-        message='sconto del 20 % ' + sale + '€'
+        message='sconto del 20 % costo: ' + sale + '€'
     
-    }else if(ageEl.value > 65){
+    }else if(ageEl.value >= 65){
         sale = (costKm / 100 * 60).toFixed(2);
-        message='sconto del 40 % ' + sale  + '€'
+        message='sconto del 40 % costo: ' + sale  + '€'
         
     }else{
        sale=costKm.toFixed(2)
        message='niente sconto ' + sale + '€'
 
     }
-
-    distanceKmEl.value='';
-    ageEl.value='';
-
+    
     
     tiketEl.innerHTML=(`
+    Nome passeggero: ${nameEl.value} <br>
     Tratta da percorrere: ${distanceKmEl.value} km <br>
     Eta del passeggero: ${ageEl.value} anni <br>
     ${message}
-    `)
+    `);
+
+    nameEl.value='';
+    distanceKmEl.value='';
+    ageEl.value='';
     
+    tiketEl.classList.remove('spinner-grow');
 });
 
-// tiketEl.innerHTML=
+//creo un evento
+annullaEl.addEventListener('click', function(){
 
-// tiketEl.innerHTML =(`
-// Tratta da percorrere: ${sale} km 
-// `)
-// let tiketEl = document.getElementById('tiket');
-// document.writeln(`
-// Tratta da percorrere: ${distanceKmEl.value} km <br>
-// `)
-
-// document.writeln(`
-// Tratta da percorrere: ${distanceKmEl} km <br>
-// Eta del passeggero: ${ageEl} anni <br>
-// Costo del biglietto: ${totalCost} €
-// `)
-
-// let totalCost = sale.toFixed(2);
+    tiketEl.classList.add('spinner-grow');
+    tiketEl.innerHTML=(``);
+});
 
 
-
-
-
-
-// console.log(totalCost)
-
-
-
-
-
-// 
