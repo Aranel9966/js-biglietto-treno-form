@@ -24,10 +24,20 @@
           <input type="number" class="form-control" id="distanceKm" >     
         </div>
     
-        <div class="mb-3 col-4 m-auto ">
+        <!-- <div class="mb-3 col-4 m-auto ">
             <label for="age" class="form-label">Quanti anni hai?</label>
             <input type="number" class="form-control " id="age" >
-        </div>
+        </div> -->
+
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupAge">Quanti anni hai?</label>
+            <select class="form-select" id="age">
+              <option value="">Choose...</option>
+              <option value="0-17">Minorenne</option>
+              <option value="18-64">Adulto</option>
+              <option value="65+">Over 65</option>
+            </select>
+          </div>
         
     
         <div class="p-3 text-center m-auto bg-info-subtle">

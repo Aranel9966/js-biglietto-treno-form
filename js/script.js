@@ -41,11 +41,12 @@ submitEl.addEventListener('click', function(){
 
     costKm = distanceKmEl.value * 0.21;
 
-    if(ageEl.value < 18){
+    //condizione per sconto
+    if(ageEl.value == '0-17' ){
         sale = (costKm / 100 * 80).toFixed(2);
         message='sconto del 20 % costo: ' + sale + '€'
     
-    }else if(ageEl.value >= 65){
+    }else if(ageEl.value == '65+' ){
         sale = (costKm / 100 * 60).toFixed(2);
         message='sconto del 40 % costo: ' + sale  + '€'
         
@@ -55,26 +56,34 @@ submitEl.addEventListener('click', function(){
 
     }
     
-    
-    tiketEl.innerHTML=(`
-    Nome passeggero: ${nameEl.value} <br>
-    Tratta da percorrere: ${distanceKmEl.value} km <br>
-    Eta del passeggero: ${ageEl.value} anni <br>
-    ${message}
-    `);
+    //condizione per stampa
+    if(nameEl.value ==''||distanceKmEl.value==''||ageEl.value ==''){
+
+        alert('Compila i campi con i tuoi dati!');
+        
+    }else{
+
+        tiketEl.innerHTML=(`
+        Nome passeggero: ${nameEl.value} <br>
+        Tratta da percorrere: ${distanceKmEl.value} km <br>
+        Eta del passeggero tra: ${ageEl.value} anni <br>
+        ${message}
+        `);
+    }
 
     nameEl.value='';
     distanceKmEl.value='';
     ageEl.value='';
     
-    tiketEl.classList.remove('spinner-grow');
+    // tiketEl.classList.remove('spinner-grow');
 });
 
 //creo un evento
 annullaEl.addEventListener('click', function(){
 
-    tiketEl.classList.add('spinner-grow');
-    tiketEl.innerHTML=(``);
+    // tiketEl.classList.add('spinner-grow');
+    tiketEl.innerHTML=('Riprova...')
+    
 });
 
 
